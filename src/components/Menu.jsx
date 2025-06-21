@@ -15,7 +15,7 @@ const Menu = () => {
       console.error('Error signing out:', error.message)
       return
     }
-    fetchSession() // Refresh session after signout
+    fetchgetSession() // Refresh session after signout
   }
 
   return (

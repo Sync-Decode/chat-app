@@ -17,7 +17,7 @@ export const useSession = create((set) => ({
   hasFetchedSession: false,
 
   fetchSession: async () => {
-    const session = supabase.auth.session()
+    const session = supabase.auth.getSession()
 
     if (session) {
       await supabase.from('users').upsert({
@@ -58,7 +58,7 @@ export const useUsersStore = create((set) => ({
 
   fetchUsers: async () => {
     try {
-      const session = supabase.auth.session()
+      const session = supabase.auth.getSession()
       const currentUserID = session.data.session?.user?.id
       set({ currentUserID })
 

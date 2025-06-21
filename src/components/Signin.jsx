@@ -83,7 +83,7 @@ const Signin = () => {
     setEmail('')
     setPassword('')
 
-    const session =  supabase.auth.session()
+    const session = supabase.auth.getSession()
     useSession.setState({ session: session })
     console.log('Session:', session)
 
