@@ -1,0 +1,8 @@
+id,user_id,email,username,avatar_url,status,is_online,last_seen,bio
+1,87791c6e-c9ed-4389-9433-fd271a6a336e,alice@example.com,Alice,https://avatar.example.com/alice.png,active,True,2025-06-20T11:12:45.428651,Loves coding.
+2,0bd6e366-47e0-4506-80fe-118c920ffa98,bob@example.com,Bob,https://avatar.example.com/bob.png,active,False,2025-06-20T11:02:45.428651,Designer at heart.
+3,1c951e9d-d61a-4f1c-970e-f333914d535e,user3@example.com,User3,https://avatar.example.com/user3.png,active,True,2025-06-20T10:57:45.428651,Bio of user3
+4,f2fbe4a2-13d8-41c8-b07f-b4cd6ff5f602,user4@example.com,User4,https://avatar.example.com/user4.png,active,False,2025-06-20T10:52:45.428651,Bio of user4
+5,e7d3ec5d-e515-4198-98cf-6377a5086cb3,user5@example.com,User5,https://avatar.example.com/user5.png,active,True,2025-06-20T10:47:45.428651,Bio of user5
+6,53e41da5-9932-4cf4-94b9-8d20da43b829,user6@example.com,User6,https://avatar.example.com/user6.png,active,False,2025-06-20T10:42:45.428651,Bio of user6
+7,bda5a6e7-34a0-421b-b925-ef7dad919083,user7@example.com,User7,https://avatar.example.com/user7.png,active,True,2025-06-20T10:37:45.428651,Bio of user7
