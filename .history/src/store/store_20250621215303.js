@@ -32,7 +32,6 @@ export const useSession = create((set) => ({
     }
     if (error) {
     }
-    
 
     set({ session: data.session, hasFetchedSession: true })
 

@@ -20,7 +20,7 @@ export const useSession = create((set) => ({
   hasFetchedSession: false,
 
   fetchSession: async () => {
-    const {data, } = supabase.auth.getSession()
+    const { data } = supabase.auth.getSession()
 
     if (session) {
       await supabase.from('users').upsert({

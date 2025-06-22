@@ -113,7 +113,10 @@ export default function UserList() {
   return (
     <div className="w-full h-full overflow-y-auto ">
       <form action="">
-        <input type="text" className='w-full rounded-xl border border-gray-400 focus:outline-none  py-2 text-xs'/>
+        <input
+          type="text"
+          className="w-full rounded-xl border border-gray-400 focus:outline-none  py-2 text-xs"
+        />
       </form>
       {users.map((user) => (
         <div

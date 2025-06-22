@@ -20,7 +20,7 @@ export const useSession = create((set) => ({
   hasFetchedSession: false,
 
   fetchSession: async () => {
-    const {data, error} = supabase.auth.getSession()
+    const { data, error } = supabase.auth.getSession()
 
     if (data) {
       await supabase.from('users').upsert({
@@ -30,8 +30,7 @@ export const useSession = create((set) => ({
         avatar_url: data.session.user.user_metadata.avatar_url || '',
       })
     }
-    if(error){
-      
+    if (error) {
     }
 
     set({ session: data.session, hasFetchedSession: true })

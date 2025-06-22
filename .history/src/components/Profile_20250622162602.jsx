@@ -1,0 +1,26 @@
+// components/Profile.js
+
+import { useUserProfileStore, useViewStore } from '@/store/store'
+import { useIsDesktop } from '@/hooks/useIsDesktop'
+
+export default function Profile() {
+  const setView = useViewStore((s) => s.setView)
+  const isDesktop = useIsDesktop()
+  const currentProfile = useUserProfileStore((s) => s.userProfile)
+
+  return (
+    <div className="w-full h-full flex flex-col  p-4 bg-gray-900 border-0">
+      <h3 className="text-xl mb-4">User Profile</h3>
+      <div className="flexflex flex-col "></div>
+
+      {!isDesktop && (
+        <button
+          onClick={() => setView('chat')}
+          className="bg-yellow-600 px-4 py-2 rounded"
+        >
+          Back to Chat
+        </button>
+      )}
+    </div>
+  )
+}

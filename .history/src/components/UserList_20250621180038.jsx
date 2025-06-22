@@ -113,7 +113,7 @@ export default function UserList() {
   return (
     <div className="w-full h-full overflow-y-auto ">
       <form action="">
-        <input type="text" className='rounded'/>
+        <input type="text" className="rounded" />
       </form>
       {users.map((user) => (
         <div

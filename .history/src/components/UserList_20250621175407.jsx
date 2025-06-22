@@ -112,9 +112,7 @@ export default function UserList() {
 
   return (
     <div className="w-full h-full overflow-y-auto ">
-      <form action="">
-        
-      </form>
+      <form action=""></form>
       {users.map((user) => (
         <div
           key={user.user_id}

@@ -18,7 +18,6 @@ export const useLoginViewStore = create((set) => ({
 export const useSession = create((set) => ({
   session: null,
   hasFetchedSession: false,
-  
 
   fetchSession: async () => {
     const { data, error } = await supabase.auth.getSession()

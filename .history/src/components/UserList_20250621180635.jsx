@@ -119,7 +119,7 @@ export default function UserList() {
             type="text"
             className="w-full rounded-xl border border-gray-400 focus:outline-none  py-2 text-xs"
           />
-          <div className='absolute top-1/2 -tra'>
+          <div className="absolute top-1/2 -tra">
             <CiSearch size={24} />
           </div>
         </div>

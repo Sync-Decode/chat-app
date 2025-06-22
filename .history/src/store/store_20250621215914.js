@@ -19,7 +19,6 @@ export const useSession = create((set) => ({
   session: null,
   hasFetchedSession: false,
   user: null,
-  
 
   fetchSession: async () => {
     const { data, error } = await supabase.auth.getSession()

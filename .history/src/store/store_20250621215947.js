@@ -31,11 +31,10 @@ export const useSession = create((set) => ({
     }
 
     const user = data.session.user
-    set({user})
+    set({ user })
 
     // Optional: ensure metadata is not null
     const metadata = user.user_metadata || {}
-    
 
     await supabase.from('users').upsert({
       user_id: user.id,

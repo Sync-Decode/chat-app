@@ -12,10 +12,6 @@ export default function UserList() {
   const setSelectedChatId = useChatStore((s) => s.setSelectedChatId)
   const setOtherUser = useChatStore((s) => s.setOtherUser)
 
-  
-
-
-
   return (
     <div className="w-full h-full overflow-y-auto ">
       <form action="">

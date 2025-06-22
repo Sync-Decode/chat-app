@@ -42,7 +42,7 @@ export const useSession = create((set) => ({
       avatar_url: metadata.avatar_url || '',
     })
 
-    set({ session: data.session, hasFetchedSession: true, user:user, meta })
+    set({ session: data.session, hasFetchedSession: true, user: user, meta })
     return data.session
   },
 }))

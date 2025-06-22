@@ -36,8 +36,6 @@ export default function UserList() {
     return data
   }
 
-
-
   return (
     <div className="w-full h-full overflow-y-auto ">
       <form action="">

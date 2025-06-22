@@ -113,7 +113,7 @@ export default function UserList() {
   return (
     <div className="w-full h-full overflow-y-auto ">
       <form action="">
-        <input type="text" className='rounded-xl border border-gra'/>
+        <input type="text" className="rounded-xl border border-gra" />
       </form>
       {users.map((user) => (
         <div

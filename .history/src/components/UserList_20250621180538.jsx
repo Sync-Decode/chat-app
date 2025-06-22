@@ -114,7 +114,7 @@ export default function UserList() {
   return (
     <div className="w-full h-full overflow-y-auto ">
       <form action="">
-        <div className='relative flex'>
+        <div className="relative flex">
           <input
             type="text"
             className="w-full rounded-xl border border-gray-400 focus:outline-none  py-2 text-xs"
