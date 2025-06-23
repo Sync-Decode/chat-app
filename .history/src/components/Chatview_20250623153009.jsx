@@ -93,7 +93,10 @@ export default function ChatView({ chatId }) {
   }, [messages])
 
   return (
-    <div className="relative flex-1 flex flex-col w-full h-full bg-transparent bg-[url('/bg-svg.svg')]  bg-cover bg-center">
+    <div className="relative flex-1 flex flex-col  w-full h-full bg-transparent ">
+      <div className="absolute top-0 left-0 right-0 h-full -z-20 ">
+        <img src="/bg-svg.svg" alt="bg" />
+      </div>
       <div className="w-full flex flex-row justify-between gap-2 items-center bg-gray-100 text-black border-b border-gray-300 p-4  ">
         <div className="sticky top-0 flex  items-center gap-2">
           {isMobile && (

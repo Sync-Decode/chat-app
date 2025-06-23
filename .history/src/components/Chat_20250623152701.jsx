@@ -1,5 +1,8 @@
 // components/Chat.js
 
+import { useViewStore } from '@/store/store'
+import { useIsMobile } from '@/hooks/useIsMobile'
+import { useIsDesktop } from '@/hooks/useIsDesktop'
 import { useChatStore } from '@/store/store'
 import ChatView from './Chatview'
 
@@ -11,7 +14,9 @@ const Chat = () => {
 
   return (
     <div className="relative w-full h-full flex flex-col bg-gray-800 overflow-scroll ">
-      
+      <div className="absolute top-0 left-0 right-0 h-full -z-20 ">
+        <img src="/bg-svg.svg" alt="bg" />
+      </div>
       <div className="relative flex-1 w-full max-h-full flex flex-col bg-gray-100">
         {selectedChatId ? (
           <ChatView chatId={selectedChatId} />
