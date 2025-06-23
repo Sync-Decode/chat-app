@@ -95,7 +95,7 @@ export default function ChatView({ chatId }) {
   return (
     <div className="flex-1 flex flex-col  w-full h-full bg-transparent ">
       <div className="w-full flex flex-row justify-between gap-2 items-center bg-gray-100 text-black border-b border-gray-300 p-4  ">
-        <div className="sticky top-0 flex  items-center gap-2">
+        <div className="stflex  items-center gap-2">
           {isMobile && (
             <div
               onClick={() => setView('sidebar')}
