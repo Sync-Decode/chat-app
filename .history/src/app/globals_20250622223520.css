@@ -1,0 +1,68 @@
+@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f1f1f1;
+  --foreground: #111827;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111827;
+    --foreground: #f1f1f1;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  scrollbar-width: 0;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+@layer base {
+  p {
+    @apply text-sm font-light;
+  }
+
+  h6 {
+    @apply text-base;
+  }
+
+  h5 {
+    @apply text-lg;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-2xl font-light;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h1 {
+    @apply text-4xl;
+  }
+  img {
+    @apply w-full h-full object-cover;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}

@@ -1,0 +1,102 @@
+import { useEffect, useState } from 'react'
+import { CiSearch } from 'react-icons/ci'
+import supabase from '@/lib/supabase'
+import { useChatStore } from '@/store/store'
+
+const ChatsList = () => {
+  const currentUserID = useChatStore((s) => s.currentUserID)
+  const otherUser = useChatStore((s) => s.otherUser)
+  const chats = useChatStore((s) => s.chats)
+  const setChats = useChatStore((s) => s.setChats)
+  const fetchChats = useChatStore((s) => s.fetchChats)
+
+  useEffect(() => {
+    fetchChats()
+  }, [chats])
+
+  useEffect(() => {
+    if (!currentUserID) return
+
+    const fetchChats = async () => {
+      // Step 1: Get all chats for current user
+      const { data: userChats, error: chatError } = await supabase
+        .from('chats')
+        .select('chat_id, type, name, members, created_at')
+        .contains('members', [currentUserID])
+        .order('created_at', { ascending: false })
+
+      if (chatError) {
+        console.error('Error fetching chats:', chatError)
+        return
+      }
+
+      // Step 2: Get all unique user IDs from all chats
+      const allUserIds = new Set()
+      userChats.forEach((chat) => {
+        chat.members.forEach((id) => allUserIds.add(id))
+      })
+
+      // Step 3: Fetch all users in one go
+      const { data: users, error: userError } = await supabase
+        .from('users')
+        .select('user_id, username, avatar_url')
+        .in('user_id', Array.from(allUserIds))
+
+      if (userError) {
+        console.error('Error fetching users:', userError)
+        return
+      }
+
+      // Step 4: Map user_id to profile
+      const userMap = Object.fromEntries(users.map((u) => [u.user_id, u]))
+
+      // Step 5: Format enriched chats
+      const enrichedChats = userChats.map((chat) => ({
+        ...chat,
+        memberProfiles: chat.members.map((id) => userMap[id]),
+        otherUser:
+          chat.type === 'dm'
+            ? userMap[chat.members.find((id) => id !== currentUserID)]
+            : null,
+      }))
+
+      setChats(enrichedChats)
+    }
+
+    fetchChats()
+  }, [currentUserID])
+
+  return (
+    <div className="w-full h-full overflow-y-auto ">
+      <form action="">
+        <div className="relative flex">
+          <input
+            placeholder="Search chats..."
+            type="text"
+            className="w-full rounded-xl border border-gray-400 focus:outline-none px-4  py-2 text-xs placeholder:text-gray-500 "
+          />
+          <button className="absolute top-1/2 right-2 -translate-y-1/2">
+            <CiSearch size={24} />
+          </button>
+        </div>
+      </form>
+      <div>
+        {chats.map((chat) => (
+          <div key={chat.chat_id} onClick={() => openChat(chat.chat_id)}>
+            <img
+              src={otherUser?.avatar_url || ''}
+              className="w-10 h-10 rounded-full"
+            />
+            <div>
+              <h4>{chat.username}</h4>
+              <p className="text-sm text-gray-400">{chat.last_message}</p>
+            </div>
+            {/* <span className="text-xs">{formatTime(chat.last_message_at)}</span> */}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default ChatsList
