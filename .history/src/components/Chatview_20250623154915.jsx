@@ -93,7 +93,7 @@ export default function ChatView({ chatId }) {
   }, [messages])
 
   return (
-    <div className="sticky top-0 flex-1 flex flex-col w-full h-full bg-gray-900/25  bg-blend-multiply bg-cover bg-center bg-opacity-25">
+    <div className="relative flex-1 flex flex-col w-full h-full bg-gray-900/25  bg-blend-multiply bg-cover bg-center bg-opacity-25">
       <div className="w-full flex flex-row justify-between gap-2 items-center bg-gray-100 text-black border-b border-gray-300 p-4  ">
         <div className="sticky top-0 flex  items-center gap-2">
           {isMobile && (

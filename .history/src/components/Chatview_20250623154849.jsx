@@ -93,7 +93,7 @@ export default function ChatView({ chatId }) {
   }, [messages])
 
   return (
-    <div className="sticky top-0 flex-1 flex flex-col w-full h-full bg-gray-900/25  bg-blend-multiply bg-cover bg-center bg-opacity-25">
+    <div className="relative flex-1 flex flex-col w-full h-full bg-gray-900/25  bg-blend-multiply bg-cover bg-center bg-opacity-25">
       <div className="w-full flex flex-row justify-between gap-2 items-center bg-gray-100 text-black border-b border-gray-300 p-4  ">
         <div className="sticky top-0 flex  items-center gap-2">
           {isMobile && (
@@ -177,7 +177,7 @@ export default function ChatView({ chatId }) {
         onSubmit={handleSendMessage}
         className="sticky bottom-0 left-0 w-full flex items-center p-2 border-t border-gray-300 bg-gray-100 text-gray-900"
       >
-        <div className=" w-full rounded-full border border-gray-900 flex items-center bg-gray-100">
+        <div className="stw-full rounded-full border border-gray-900 flex items-center bg-gray-100">
           <textarea
             rows={1}
             type="text"
