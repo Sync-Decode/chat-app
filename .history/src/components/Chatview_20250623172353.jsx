@@ -10,7 +10,6 @@ export default function ChatView({ chatId }) {
   const setView = useViewStore((s) => s.setView)
   const isMobile = useIsMobile()
   const isDesktop = useIsDesktop()
-  const [expandedMessages, setExpandedMessages] = useState({})
 
   const [messages, setMessages] = useState([])
   const [newMessage, setNewMessage] = useState('')
@@ -141,12 +140,11 @@ export default function ChatView({ chatId }) {
           return (
             <div
               key={msg.message_id}
-              onClick={() =>
-                setExpandedMessages((prev) => ({
-                  ...prev,
-                  [msg.message_id]: !prev[msg.message_id],
-                }))
-              }
+              onClick={() => {
+                setIsOpen((prev) => !prev)
+                const [isOpen, setIsOpen] = useState(false)
+                if(isOpen){}
+              }}
               className={`flex items-start gap-2 ${
                 msg.sender_id === currentUserId ? 'self-end' : 'self-start'
               }`}
@@ -159,19 +157,14 @@ export default function ChatView({ chatId }) {
               />
 
               <div
+              ref
                 className={` max-w-xs px-4 py-2 rounded-lg text-sm shadow-md flex flex-col gap-2 ${
                   msg.sender_id === currentUserId
                     ? 'bg-amber-500 text-gray-900 self-end'
                     : 'bg-gray-200 text-black self-start'
                 }`}
               >
-                <p
-                  className={`${
-                    expandedMessages[msg.message_id] ? 'h-auto' : 'max-h-24'
-                  } overflow-scroll`}
-                >
-                  {msg.content}
-                </p>
+                <p className="max-h-24 overflow-scroll ">{msg.content}</p>
                 <p className="text-[10px] text-gray-600 mt-1">
                   {new Date(msg.created_at).toLocaleTimeString([], {
                     hour: '2-digit',

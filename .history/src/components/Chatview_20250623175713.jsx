@@ -168,7 +168,7 @@ export default function ChatView({ chatId }) {
                 <p
                   className={`${
                     expandedMessages[msg.message_id] ? 'h-auto' : 'max-h-24'
-                  } overflow-scroll`}
+                  } overflow-s`}
                 >
                   {msg.content}
                 </p>

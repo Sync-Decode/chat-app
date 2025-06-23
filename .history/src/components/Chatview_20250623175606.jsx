@@ -165,13 +165,7 @@ export default function ChatView({ chatId }) {
                     : 'bg-gray-200 text-black self-start'
                 }`}
               >
-                <p
-                  className={`${
-                    expandedMessages[msg.message_id] ? 'h-auto' : 'max-h-24'
-                  } overflow-scroll`}
-                >
-                  {msg.content}
-                </p>
+                <p className={ max-h-24 overflow-scroll }>{msg.content}</p>
                 <p className="text-[10px] text-gray-600 mt-1">
                   {new Date(msg.created_at).toLocaleTimeString([], {
                     hour: '2-digit',
