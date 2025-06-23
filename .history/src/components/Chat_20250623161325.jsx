@@ -17,13 +17,13 @@ const Chat = () => {
         ) : (
           <div className="flex items-center justify-center h-full text-gray-500">
             {isMobile && (
-              <div
-                onClick={() => setView('sidebar')}
-                className="absolute top-4 left-4 text-black flex gap-1 items-center cursor-pointer hover:underline"
-              >
-                <IoArrowBack />
-              </div>
-            )}
+                        <div
+                          onClick={() => setView('sidebar')}
+                          className="ml-4 text-black flex gap-1 items-center cursor-pointer hover:underline"
+                        >
+                          <IoArrowBack />
+                        </div>
+                      )}
             Select a chat to start messaging
           </div>
         )}

@@ -19,7 +19,7 @@ const Chat = () => {
             {isMobile && (
               <div
                 onClick={() => setView('sidebar')}
-                className="absolute top-4 left-4 text-black flex gap-1 items-center cursor-pointer hover:underline"
+                className=" text-black flex gap-1 items-center cursor-pointer hover:underline"
               >
                 <IoArrowBack />
               </div>
