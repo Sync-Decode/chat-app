@@ -10,7 +10,8 @@ const Chat = () => {
   const selectedChatId = useChatStore((s) => s.selectedChatId)
 
   return (
-    <div className="sticky top-0 w-full h-full flex flex-col bg-gray-800 overflow-scroll ">
+    <div className="sticky  w-full h-full flex flex-col bg-gray-800 overflow-scroll ">
+      
       <div className="relative flex-1 w-full max-h-full flex flex-col bg-gray-100">
         {selectedChatId ? (
           <ChatView chatId={selectedChatId} />
